@@ -21,11 +21,6 @@
   .text
 
  main:
-exit:
-  li $v0, 10
-  
-  # The Syscall will execute the function call basically 
-  syscall 
   
   error_emptyInpt:
 
@@ -259,4 +254,10 @@ exit:
 	syscall
 
 j exit
+
+exit:
+  li $v0, 10
+  
+  # The Syscall will execute the function call basically 
+  syscall 
 
