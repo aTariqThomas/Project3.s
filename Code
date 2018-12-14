@@ -3,7 +3,7 @@
 # N = 27 + (02845739 % 10) = 36
 # M = N - 10 = 26
    .data
-  input_prompt: .asciiz "Enter an input:"
+ # input_prompt: .asciiz "Enter an input:"
   long_Inpt:    .asciiz "Input is too long."
   empty_Inpt:   .asciiz "Input is empty.\n"
   buffer:       .space  500
@@ -12,9 +12,9 @@
 
   .text
 main:
- li $v0, 4
- la $a0, input_prompt
- syscall
+# li $v0, 4
+# la $a0, input_prompt
+# syscall
 
  li $v0, 8       # system call 8 = read input
 
