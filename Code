@@ -20,3 +20,11 @@ main:
 
  la $a0, buffer  # load byte space into address
  li $a1, 500     # byte space for string
+syscall
+
+ la $a0, buffer          # load read string address
+ jal process_user_str    # function to process user input
+
+ j exit_program
+
+process_user_str:
