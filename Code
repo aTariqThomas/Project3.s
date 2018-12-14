@@ -91,31 +91,31 @@
 	
 	beq $t5, $t1, prepare_for_the_convsn #branches if equal
 	
-	slti $t6, $t5, 48
+	slti $t4, $t5, 48
 	
-	bne $t6, $zero, error_invalidInpt
+	bne $t4, $zero, error_invalidInpt
 	
-	slti $t6, $t5, 58
+	slti $t4, $t5, 58
 	
-	bne $t6, $zero, step_char_forward
+	bne $t4, $zero, step_char_forward
 	
-	slti $t6, $t5, 65
+	slti $t4, $t5, 65
 
-	bne $t6, $zero, error_invalidInpt
+	bne $t4, $zero, error_invalidInpt
 	
-	slti $t6, $t5, 91                 # This basically does : 65 + N - 10
+	slti $t4, $t5, 85                 # This basically does : 65 + N - 10
 	
-	bne $t6, $zero, step_char_forward
+	bne $t4, $zero, step_char_forward
 	
-	slti $t6, $t5, 97
+	slti $t4, $t5, 97
 	
-	bne $t6, $zero, error_invalidInpt
+	bne $t4, $zero, error_invalidInpt
 	
-	slti $t6, $t5, 122                # This basically does : 97 + N - 10
+	slti $t4, $t5, 117               # This basically does : 97 + N - 10
 	
-	bne $t6, $zero, step_char_forward
+	bne $t4, $zero, step_char_forward
 	
-	bgt $t5, 124, error_invalidInpt   # This basically does : 97 + N - 9
+	bgt $t5, 118, error_invalidInpt   # This basically does : 97 + N - 9
 	
 	step_char_forward:
 	
