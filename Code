@@ -63,3 +63,10 @@ print_empty_string:
 # M = 26, N = 36. So allowed chars are 0-9, a-z, A-Z, ' '
 is_valid_input:
     move $t0, $a0                       # t0 <- string[0]
+    
+    loop.valid:
+    li $t1, ' '
+    lb $t2, 0($t0)                      # t2 <- str[i]
+    beq $t1, $t2, valid.continue              # str[i] = ' '. Valid. Check further
+
+    li $t1, 10
