@@ -48,3 +48,10 @@ remove_leading_white_spaces:
     #############################################
     lw    $v0, ($sp)        # store return values in v0, v1
     lw    $v1, 4($sp)
+    lw    $ra, 8($sp)       # reload saved return address
+    addiu $sp, $sp, 12      # reset stack pointer
+    jr    $ra               # return to calling location
+
+
+print_empty_string:
+    li $v0, 4
