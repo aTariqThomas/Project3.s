@@ -104,3 +104,7 @@ beq $t1, $t2, is_valid              # str[i] = enter key (end of string)
     la $a0, invalid_Inpt
     syscall
     j exit_program
+
+exit_program:
+    li $v0, 10              # exit program
+    syscall
