@@ -77,3 +77,11 @@ beq $t1, $t2, is_valid              # str[i] = enter key (end of string)
 
     li $t1, '9'
     ble $t2, $t1, valid.continue              # str[i] > '0' and str[i] <= '9'
+    
+     li $t1, 'A'
+    blt $t2, $t1, print_invalid_input
+
+    li $t1, 'Z'
+    ble $t2, $t1, valid.continue
+
+    li $t1, 'a'
