@@ -45,7 +45,7 @@
 	
 	move $t9, $a0
 	
-	j input_the_length
+	j itl
 
 
 	dtfc:
