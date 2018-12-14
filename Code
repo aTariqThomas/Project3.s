@@ -25,6 +25,7 @@
   
 
   
+
 #This is the beginning of the main function
 
   li $v0, 8
