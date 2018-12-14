@@ -91,3 +91,10 @@ beq $t1, $t2, is_valid              # str[i] = enter key (end of string)
     ble $t2, $t1, valid.continue
 
     j print_invalid_input
+
+   valid.continue:
+	addiu $t0, $t0, 1                   # increment array address
+	j loop.valid
+
+  is_valid:
+  jr $ra
