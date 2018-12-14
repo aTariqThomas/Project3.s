@@ -28,3 +28,9 @@ syscall
  j exit_program
 
 process_user_str:
+ addiu $sp, $sp, -12     # create space on stack
+ sw    $ra, 8($sp)       # save $ra on stack
+
+ lb $t0, 0($a0)
+ li $t1, 10              # if 1st char of string is 'enter key (=10)', its empty string
+ beq $t0, $t1, print_empty_string
