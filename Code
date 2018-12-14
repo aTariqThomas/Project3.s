@@ -22,31 +22,7 @@
 
  main:
   
-  error_emptyInpt:
-
-# This function will be called if there is no input
-
-  la $a0, empty_Inpt
   
-  li $v0, 4
-  
-  syscall
-  j exit
-  
-  error_invalidInpt:
-  la $a0, invalid_Inpt
-  li $v0, 4
-  syscall
-  j exit
-  
-  error_has_longInpt:
-
-
-  la $a0, long_Inpt
-  li $v0, 4
-  
-   syscall
-  j exit
 
   
 #This is the beginning of the main function
@@ -59,25 +35,25 @@
   
   syscall
   
-  delete_left_pad:
+  left_del:
 	li $t8, 32 # This adds a space
 	
-	lb $t9, 0($a0)
+	lb $t7, 0($a0)
 
-	beq $t8, $t9, delete_the_firstCharacter # Calls the function with the label titled : delete_the_firstCharacter
+	beq $t8, $t7, dtfc # Calls the function with the label titled : dtfc
 	
 	move $t9, $a0
 	
 	j input_the_length
 
 
-	delete_the_firstCharacter:
+	dtfc:
 	
 	addi $a0, $a0, 1
 	
-	j delete_left_pad #jumps to delete_left_pad
+	j left_del #jumps to left_del
 	
-	input_the_length:
+	itl:
 	
 	addi $t0, $t0, 0
 	
@@ -85,18 +61,18 @@
 	
 	add $t4, $t4, $a0
 
-	len_iteration:
+	iter_length:
 	
 	lb $t2, 0($a0)
 	
-	beqz $t2, after_the_length_is_found #branches if equal to zero
-	beq $t2, $t1, after_the_length_is_found #branches if equal
+	beqz $t2, atlif #branches if equal to zero
+	beq $t2, $t1, atlif #branches if equal
 	
 	addi $a0, $a0, 1
 	addi $t0, $t0, 1
-	j len_iteration
+	j iter_length:
 
-	after_the_length_is_found:
+	atlif:
 	
 	beqz $t0, error_emptyInpt
 	
@@ -180,7 +156,7 @@
 	
 	slti $t6, $s4, 120
 	
-	bne $t6, $zero, base_33_lower_conversion
+	bne $t6, $zero, lower_conversion
 
 	base_33_upper_conversion:
 	#This function handles the upper conversions
@@ -188,7 +164,7 @@
 	addi $s4, $s4, -55
 	j serialize_number_for_the_result
 
-	base_33_lower_conversion:
+	lower_conversion:
 	
 	#This function handles the lower conversions
 	
@@ -254,6 +230,32 @@
 	syscall
 
 j exit
+error_emptyInpt:
+
+# This function will be called if there is no input
+
+  la $a0, empty_Inpt
+  
+  li $v0, 4
+  
+  syscall
+  j exit
+  
+  error_invalidInpt:
+  la $a0, invalid_Inpt
+  li $v0, 4
+  syscall
+  j exit
+  
+  error_has_longInpt:
+
+
+  la $a0, long_Inpt
+  li $v0, 4
+  
+   syscall
+  j exit
+
 
 exit:
   li $v0, 10
