@@ -55,3 +55,11 @@ remove_leading_white_spaces:
 
 print_empty_string:
     li $v0, 4
+    la $a0, empty_Inpt
+    syscall
+    j exit_program
+
+
+# M = 26, N = 36. So allowed chars are 0-9, a-z, A-Z, ' '
+is_valid_input:
+    move $t0, $a0                       # t0 <- string[0]
