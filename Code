@@ -12,4 +12,11 @@
 
   .text
 main:
-    li $v0, 4
+ li $v0, 4
+ la $a0, input_prompt
+ syscall
+
+ li $v0, 8       # system call 8 = read input
+
+ la $a0, buffer  # load byte space into address
+ li $a1, 500     # byte space for string
