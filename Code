@@ -98,3 +98,9 @@ beq $t1, $t2, is_valid              # str[i] = enter key (end of string)
 
   is_valid:
   jr $ra
+  
+  print_invalid_input:
+    li $v0, 4
+    la $a0, invalid_Inpt
+    syscall
+    j exit_program
