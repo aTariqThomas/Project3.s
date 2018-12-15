@@ -93,6 +93,7 @@ remove_trailing_spaces:
     sb $t2, 0($t0)          # mark end of string
 
     # now print string from [$t4 to $t0]. Note, the string is valid at this point.
+    # calculate decimal counterpart of this base-36 number
     
     print_digit:
     lb $t1, 0($t4)
@@ -161,6 +162,12 @@ print_lower_letter:
 print_empty_string:
     li $v0, 4
     la $a0, empty_Inpt
+    syscall
+    j exit_program
+    
+ print_long_input:
+    li $v0, 4
+    la $a0, long_Inpt
     syscall
     j exit_program
     
