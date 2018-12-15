@@ -41,6 +41,7 @@ process_user_str:
 
     # now remove leading whitespaces
     la $t0, buffer          # t0 <- str[0]
+
 remove_leading_white_spaces:
 li $t1, ' '
     lb $t2, 0($t0)          # t2 <- str[i]  
@@ -55,7 +56,14 @@ li $t1, ' '
 
     continue.process:
     li $t1, 0           # count = 0 (leading white spaces are removed)
+     move $t4, $t0       # save t4: points to 'start' of string 
+    j count 
 
+count:
+    lb $t2, 0($t0)
+    li $t3, 10 
+    
+    
     exit_process:
     lw    $v0, ($sp)        # store return values in v0, v1
     lw    $v1, 4($sp)
