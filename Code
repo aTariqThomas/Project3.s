@@ -84,7 +84,7 @@ remove_trailing_spaces:
     
     continue2:
     li $t2, 4
-    bgt $t1, $t2, long_input  # if len(str.leading_space_removed) > 4 print long input
+    bgt $t1, $t2, long_Inpt  # if len(str.leading_space_removed) > 4 print long input
     j print_base_n
 	
     print_base_n:
