@@ -2,11 +2,16 @@
 #Student ID is @02845739
 # N = 27 + (02845739 % 10) = 36
 # M = N - 10 = 26
+   
    .data
  # input_prompt: .asciiz "Enter an input:"
+  
   long_Inpt:    .asciiz "Input is too long."
+  
   empty_Inpt:   .asciiz "Input is empty.\n"
+  
   buffer:       .space  500
+ 
  msg_newline:  .asciiz "\n"
   invalid_Inpt: .asciiz "Invalid number for base-36 number.\n"
 
