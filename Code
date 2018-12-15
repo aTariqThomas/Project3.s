@@ -94,6 +94,15 @@ remove_trailing_spaces:
 
     # now print string from [$t4 to $t0]. Note, the string is valid at this point.
     
+    print_digit:
+    lb $t1, 0($t4)
+    li $t2, 10
+    beq $t1, $t2, exit_program    # end of string: exit
+
+    # else print it
+    li $t2, ' '
+    
+    
     exit_process:
     lw    $v0, ($sp)        # store return values in v0, v1
     lw    $v1, 4($sp)
