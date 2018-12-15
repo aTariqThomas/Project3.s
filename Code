@@ -95,7 +95,13 @@ remove_trailing_spaces:
     # now print string from [$t4 to $t0]. Note, the string is valid at this point.
     # calculate decimal counterpart of this base-36 number
     
-    
+    li $t5, 0                # t5 = decimal value of base 36 number
+build_number:
+	lb $t2, 0($t4)
+
+	li $t3, 36               # base = 36
+	
+	li $t6, 10               # end of string marker
 
 
    
