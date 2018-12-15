@@ -108,7 +108,14 @@ remove_trailing_spaces:
 
     li $t2, 'Z'
     ble $t1, $t2, print_upper_letter
-    
+     
+    li $t2, 'z'
+    ble $t1, $t2, print_lower_letter
+
+    j exit_process
+
+print_space:
+    li $v0, 1
     
     exit_process:
     lw    $v0, ($sp)        # store return values in v0, v1
