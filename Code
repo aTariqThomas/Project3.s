@@ -110,6 +110,14 @@ build_number:
 
 	li $t6, '9'
 	ble $t2, $t6, is_digit
+	
+	li $t6, 'Z'
+	ble $t2, $t6, is_upper_letter
+
+	li $t6, 'z'
+	ble $t2, $t6, is_lower_letter
+
+is_space:
 
    
     
