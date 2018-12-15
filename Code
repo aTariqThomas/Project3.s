@@ -81,6 +81,11 @@ remove_trailing_spaces:
     addiu $t1, $t1, -1     # subtract length
     addiu $t0, $t0, -1     # bring pointer back
     j remove_trailing_spaces
+    
+    continue2:
+    li $t2, 4
+    bgt $t1, $t2, print_long_input  # if len(str.leading_space_removed) > 4 print long input
+    j print_base_n
 
     
     exit_process:
