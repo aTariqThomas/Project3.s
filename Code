@@ -48,7 +48,13 @@ li $t1, ' '
 
     # else, non space character. break. t0 is pointing to non space char
     j continue.process
+   
+   continue_removing_white_spaces:
+    addiu $t0, $t0, 1
+    j remove_leading_white_spaces
 
+    continue.process:
+    li $t1, 0           # count = 0 (leading white spaces are removed)
 
     exit_process:
     lw    $v0, ($sp)        # store return values in v0, v1
