@@ -76,6 +76,12 @@ continue1:
 
 remove_trailing_spaces:
     lb $t2, 0($t0)
+    li $t3, ' '
+    bne $t2, $t3, continue2
+    addiu $t1, $t1, -1     # subtract length
+    addiu $t0, $t0, -1     # bring pointer back
+    j remove_trailing_spaces
+
     
     exit_process:
     lw    $v0, ($sp)        # store return values in v0, v1
@@ -90,6 +96,8 @@ print_empty_string:
     la $a0, empty_Inpt
     syscall
     j exit_program
+    
+    
 
 
 # M = 26, N = 36. So allowed chars are 0-9, a-z, A-Z, ' '
