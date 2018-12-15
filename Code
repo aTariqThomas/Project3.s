@@ -86,7 +86,13 @@ remove_trailing_spaces:
     li $t2, 4
     bgt $t1, $t2, print_long_input  # if len(str.leading_space_removed) > 4 print long input
     j print_base_n
+	
+    print_base_n:
+    addiu $t0, $t0, 1
+    li $t2, 10
+    sb $t2, 0($t0)          # mark end of string
 
+    # now print string from [$t4 to $t0]. Note, the string is valid at this point.
     
     exit_process:
     lw    $v0, ($sp)        # store return values in v0, v1
