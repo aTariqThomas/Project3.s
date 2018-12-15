@@ -135,6 +135,11 @@ build_number:
 
 is_upper_letter:
     li $t7, 'A'
+    sub $t2, $t2, $t7
+    addiu $t2, $t2, 10
+    mult $t2, $t3
+    mflo $t0
+    addu $t5, $t5, $t0
     
    
      
