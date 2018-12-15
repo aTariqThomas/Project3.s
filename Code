@@ -68,7 +68,14 @@ count:
 incr_len:
 	addiu $t1, $t1, 1       # increment count
 	addiu $t0, $t0, 1       # increment pointer
-    
+    	j count
+
+continue1:
+    # now t0 is at the end of string. Remove trailing whitespaces, and reduce len
+    addiu $t0, $t0, -1
+
+remove_trailing_spaces:
+    lb $t2, 0($t0)
     
     exit_process:
     lw    $v0, ($sp)        # store return values in v0, v1
