@@ -117,8 +117,12 @@ build_number:
 	li $t6, 'z'
 	ble $t2, $t6, is_lower_letter
 
-is_space:
-
+	is_space:
+	mult $t2, $t3
+	mflo $t0
+	addu $t5, $t5, $t0
+	addiu $t4, $t4, 1
+	j build_number
    
     
    
