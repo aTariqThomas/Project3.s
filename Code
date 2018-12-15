@@ -140,7 +140,12 @@ is_upper_letter:
     mult $t2, $t3
     mflo $t0
     addu $t5, $t5, $t0
-    
+    addiu $t4, $t4, 1
+    j build_number
+
+is_lower_letter:
+    li $t7, 'a'
+    sub $t2, $t2, $t7
    
      
    
