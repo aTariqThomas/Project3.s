@@ -103,6 +103,13 @@ build_number:
 	
 	li $t6, 10               # end of string marker
 
+	beq $t2, $t6, end_processing
+
+	li $t6, ' '
+	ble $t2, $t6, is_space
+
+	li $t6, '9'
+	ble $t2, $t6, is_digit
 
    
     
