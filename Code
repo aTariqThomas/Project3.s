@@ -153,6 +153,11 @@ is_lower_letter:
 	addiu $t4, $t4, 1
      	j build_number
    
+   end_processing:
+    li $v0, 1
+    move $a0, $t5
+    syscall
+    j exit_process
   
     
     exit_process:
