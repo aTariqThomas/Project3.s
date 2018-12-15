@@ -143,6 +143,11 @@ print_upper_letter:
 print_lower_letter:
     li $t3, 'a'
     sub $t3, $t1, $t3
+    addiu $t3, $t3, 10 
+    li $v0, 1
+    move $a0, $t3
+    syscall
+    addiu $t4, $t4, 1 
     
     exit_process:
     lw    $v0, ($sp)        # store return values in v0, v1
