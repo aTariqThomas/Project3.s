@@ -102,11 +102,7 @@ remove_trailing_spaces:
     
    
     
-    sub $t3, $t1, $t3
-    addiu $t3, $t3, 10 
-    li $v0, 1
-    move $a0, $t3
-    syscall
+   
      addiu $t4, $t4, 1 
     j print_digit
 
