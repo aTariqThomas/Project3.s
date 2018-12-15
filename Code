@@ -101,6 +101,13 @@ remove_trailing_spaces:
 
     # else print it
     li $t2, ' '
+    beq $t1, $t2, print_space
+
+    li $t2, '9'
+    ble $t1, $t2, print_number
+
+    li $t2, 'Z'
+    ble $t1, $t2, print_upper_letter
     
     
     exit_process:
