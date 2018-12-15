@@ -126,6 +126,12 @@ print_space:
     sub $t3, $t1, $t3
     li $v0, 1
     move $a0, $t3
+    syscall
+    addiu $t4, $t4, 1 
+    j print_digit
+
+print_upper_letter:
+    li $t3, 'A'
     
     exit_process:
     lw    $v0, ($sp)        # store return values in v0, v1
